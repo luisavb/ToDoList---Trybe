@@ -10,7 +10,7 @@ list.setAttribute('id', 'lista-tarefas');
 const createTaskBoard = document.getElementById('acima');
 addHTML(createTaskBoard, list);
 
-// pegando o botões e o input 
+// pegando o botões e o input
 const createTaskButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const deleteListButton = document.getElementById('apaga-tudo');
@@ -46,19 +46,6 @@ function line(event) {
     event.target.classList.add('completed');
   }
 }
-
-// requisito 5: criar itens da lista através do input
-// --  agora que coloquei todos os chamados aqui tudo faz sentido, VALEU CAIQUE!!
-function addTask() {
-  const listItem = document.createElement('li');
-  listItem.innerText = input.value;
-  listItem.className = 'task';
-  listItem.addEventListener('dblclick', line);
-  listItem.addEventListener('click', bgColor);
-  input.value = '';
-  addHTML(list, listItem);
-}
-createTaskButton.addEventListener('click', addTask);
 
 // requisito 10: criar um botão para apagar a lista toda
 function deleteList() {
@@ -102,4 +89,42 @@ function removeSelect() {
 }
 removeSelectedButton.addEventListener('click', removeSelect);
 
-// requisito 13
+// requisito 13: QUE DEMORA QUE FOI FAZER ESSE REQUISITO, AMÉM JÁ FOI!
+
+function moveUp() {
+  const selected = document.querySelector('.gray');
+  if (selected === null) return;
+  const selectedUpSibling = selected.previousElementSibling;
+  const stop = document.getElementsByTagName('li')[0]; // definindo o momento de parada como o primeiro
+  if (selected !== null && selected !== stop) {
+    list.insertBefore(selected, selectedUpSibling);
+  }
+}
+
+moveUpButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  const selected = document.querySelector('.gray');
+  if (selected === null) return;
+  const selectedDownSibling = selected.nextElementSibling;
+  const li = document.getElementsByTagName('li');
+  const stop = li[li.length - 1]; // definindo o momento de parada como o ultimo
+  if (selected !== null && selected !== stop) {
+    list.insertBefore(selected, selectedDownSibling.nextElementSibling);
+  }
+}
+
+moveDownButton.addEventListener('click', moveDown);
+
+// requisito 5: criar itens da lista através do input
+// --  agora que coloquei todos os chamados aqui tudo faz sentido, VALEU CAIQUE!!
+function addTask() {
+  const listItem = document.createElement('li');
+  listItem.innerText = input.value;
+  listItem.className = 'task';
+  listItem.addEventListener('dblclick', line);
+  listItem.addEventListener('click', bgColor);
+  input.value = '';
+  addHTML(list, listItem);
+}
+createTaskButton.addEventListener('click', addTask);
