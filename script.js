@@ -10,17 +10,11 @@ list.setAttribute('id', 'lista-tarefas');
 const createTaskBoard = document.getElementById('acima');
 addHTML(createTaskBoard, list);
 
-// Vai ser mais fácil criar o botão no HTML
-
-// const addTaskButton = document.createElement('button');
-// addTaskButton.setAttribute('id', 'criar-tarefa');
-// addHTML(createTask, addTaskButton);
-
-// pegando o botões e o input // requisitos 3, 5, 10 feitos no HTML
+// pegando o botões e o input // requisitos 3, 5, 10, 11 feitos no HTML
 const createTaskButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const deleteListButton = document.getElementById('apaga-tudo');
-const removeTask = document.getElementById('remover-finalizados')
+const removeTaskButton = document.getElementById('remover-finalizados');
 
 // alterando o value pre definido do input
 input.addEventListener('click', () => {
@@ -62,14 +56,20 @@ function addTask() {
   input.value = '';
   addHTML(list, listItem);
 }
-
 createTaskButton.addEventListener('click', addTask);
 
+// requisito 10: criar um botão para apagar a lista toda
 function deleteList() {
-  let list = document.querySelector('ol');
-  list.innerHTML = ' ';
-  // list.remove();
+  const dlist = document.querySelector('ol');
+  dlist.innerHTML = ' ';
 }
-
 deleteListButton.addEventListener('click', deleteList);
 
+// requisito 11: criar um botão para apagar tasks completas
+function removeTask() {
+  const task = document.querySelectorAll('.completed');
+  for (let i = 0; i < task.length; i += 1) {
+    task[i].remove();
+  }
+}
+removeTaskButton.addEventListener('click', removeTask);
