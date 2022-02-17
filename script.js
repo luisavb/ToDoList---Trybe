@@ -10,11 +10,15 @@ list.setAttribute('id', 'lista-tarefas');
 const createTaskBoard = document.getElementById('acima');
 addHTML(createTaskBoard, list);
 
-// pegando o botões e o input // requisitos 3, 5, 10, 11 feitos no HTML
+// pegando o botões e o input 
 const createTaskButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const deleteListButton = document.getElementById('apaga-tudo');
 const removeTaskButton = document.getElementById('remover-finalizados');
+const removeSelectedButton = document.getElementById('remover-selecionado');
+const saveListButton = document.getElementById('salvar-tarefas');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 
 // alterando o value pre definido do input
 input.addEventListener('click', () => {
@@ -42,8 +46,6 @@ function line(event) {
     event.target.classList.add('completed');
   }
 }
-
-// event.target.classList.toggle('completed')
 
 // requisito 5: criar itens da lista através do input
 // --  agora que coloquei todos os chamados aqui tudo faz sentido, VALEU CAIQUE!!
@@ -73,3 +75,31 @@ function removeTask() {
   }
 }
 removeTaskButton.addEventListener('click', removeTask);
+
+// requisito 12: local storage
+
+function save() {
+  const sList = document.getElementsByTagName('ol')[0]; // analisando o console, deu pra notar que o primeiro item da array qu trará o conteúdo
+  localStorage.setItem('saveList', sList.innerHTML); // como aprendi na mentoria que cria uma calculadora é com InnerHTML que se pega o conteúdo
+}
+
+saveListButton.addEventListener('click', save);
+//
+window.onload = () => { // para que aconteça depois que carregar né
+  const listSaved = localStorage.getItem('saveList');
+  const newList = document.getElementsByTagName('ol')[0];
+  newList.innerHTML = listSaved;
+  newList.addEventListener('click', bgColor);
+  // newList.addEventListener('dblclick', line); // POR ENQUANTO A BONITA QUER CAUSAR TRETA já já resolvo.
+};
+
+// requisito 14
+function removeSelect() {
+  const select = document.querySelectorAll('.gray');
+  for (let i = 0; i < select.length; i += 1) {
+    select[i].remove();
+  }
+}
+removeSelectedButton.addEventListener('click', removeSelect);
+
+// requisito 13
