@@ -7,7 +7,7 @@ function addHTML(parent, child) {
 const list = document.createElement('ol');
 list.setAttribute('id', 'lista-tarefas');
 
-const createTaskBoard = document.getElementById('cabecalho');
+const createTaskBoard = document.getElementById('acima');
 addHTML(createTaskBoard, list);
 
 // Vai ser mais fácil criar o botão no HTML
@@ -16,9 +16,11 @@ addHTML(createTaskBoard, list);
 // addTaskButton.setAttribute('id', 'criar-tarefa');
 // addHTML(createTask, addTaskButton);
 
-// pegando o botão e o input // requisitos 3 e 5 feitos no HTML
+// pegando o botões e o input // requisitos 3, 5, 10 feitos no HTML
 const createTaskButton = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
+const deleteListButton = document.getElementById('apaga-tudo');
+const removeTask = document.getElementById('remover-finalizados')
 
 // alterando o value pre definido do input
 input.addEventListener('click', () => {
@@ -40,7 +42,7 @@ function bgColor(event) {
 
 function line(event) {
   // const item = event.target;
-  if (event.target.className === 'task completed gray'){ 
+  if (event.target.className === 'task completed gray') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
@@ -62,3 +64,12 @@ function addTask() {
 }
 
 createTaskButton.addEventListener('click', addTask);
+
+function deleteList() {
+  let list = document.querySelector('ol');
+  list.innerHTML = ' ';
+  // list.remove();
+}
+
+deleteListButton.addEventListener('click', deleteList);
+
