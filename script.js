@@ -7,7 +7,7 @@ function addHTML(parent, child) {
 const list = document.createElement('ol');
 list.setAttribute('id', 'lista-tarefas');
 
-const createTaskBoard = document.getElementById('acima');
+const createTaskBoard = document.getElementById('lista');
 addHTML(createTaskBoard, list);
 
 // pegando o botões e o input
@@ -19,11 +19,6 @@ const removeSelectedButton = document.getElementById('remover-selecionado');
 const saveListButton = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
-
-// alterando o value pre definido do input
-input.addEventListener('click', () => {
-  input.value = '';
-});
 
 // requisitos 7 e 8: refazendo requisitos pra deixar coerente agora que o eventListener acontece depois da tarefa
 

@@ -1,33 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a56f1bd1d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento"> Trata-se de uma tentativa de fazer um criador de Lista de Tarefas. Crie o item, mude ele de posição e Clique duas vezes em um item para marcá-lo como completo </p>
+      <div id="titulo">
+        <i class="fa-solid fa-quote-left"></i><h1>Minha Lista de Tarefas</h1><i class="fa-solid fa-quote-right"></i>
+      </div>
+      <div>
+        <p id="funcionamento"> Trata-se um criador de Lista de Tarefas. Crie o item. Clique duas vezes em um item para marcá-lo como completo. </p>
+      </div>
+      <div>
+        <i class="fa-regular fa-asterisk"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-list-check"></i>
+        <i class="fa-solid fa-mug-saucer"></i>
+        <i class="fa-regular fa-asterisk"></i>
+      </div>
+
     </header>
     <main>
-      <div id="acima">
-        <input type="text" name="input" value="Digite a tarefa" id="texto-tarefa">
+      <section id="acima">
+        <input type="text" name="input" placeholder="Digite a tarefa" id="texto-tarefa" maxlength="90">
         <button id="criar-tarefa"> Criar Tarefa </button>
-      </div>
-      <div id="abaixo"> 
-        <button id="apaga-tudo"> Limpa Lista </button>
-        <button id="remover-finalizados"> Remove Finalizados </button>
-        <button id="remover-selecionado"> Remove Selecionado </button>
-        <button id="salvar-tarefas"> Salvar a Lista </button>
-        <button id="mover-cima"> Mover para Cima </button>
-        <button id="mover-baixo"> Mover para Baixo </button>
-      </div>
+      </section>
+
+      <section id="meio">
+        <div id="lista"></div>
+        <div id="cima-baixo">
+          <button id="mover-cima"> <i class="fa-solid fa-arrow-up"></i> </button>
+          <button id="mover-baixo"> <i class="fa-solid fa-arrow-down"></i> </button>
+        </div>
+      </section>
+     
+      <section id="abaixo"> 
+        <button id="apaga-tudo"> Limpa Lista <i class="fa-solid fa-trash-can"></i> </button>
+        <button id="remover-finalizados"> Remove Finalizados <i class="fa-solid fa-check"></i> </button>
+        <button id="remover-selecionado"> Remove Selecionado <i class="fa-solid fa-delete-left"></i> </button>
+        <button id="salvar-tarefas"> Salvar a Lista <i class="fa-solid fa-floppy-disk"></i> </button>
+        <!-- <button id="mover-cima"> Mover para Cima </button>
+        <button id="mover-baixo"> Mover para Baixo </button> -->
+      </section>
     </main>
-
-
+    
     <script src="script.js"></script>
 </body>
 </html>

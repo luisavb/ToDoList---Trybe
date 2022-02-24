@@ -1,5 +1,7 @@
 body {
-  background-color: lightseagreen;
+  background-color: rgb(226 , 222 , 219);
+  font-family: ' Special Elite ', cursive, sans-serif;
+  height: 100%;
 }
 
 .gray {
@@ -8,5 +10,72 @@ body {
 
 .completed {
   text-decoration: line-through;
-  background-color: lightseagreen;
+  background-color: rgb(226 , 222 , 219);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(205 , 201 , 198);
+  font-family: Special Elite, cursive, sans-serif;
+}
+
+#titulo {
+  display: flex;
+}
+
+#acima {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+#texto-tarefa {
+  width: 500px;
+  background-color: gainsboro;
+  font-family: Special Elite, cursive, sans-serif;
+  border-radius: 4px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+button {
+  font-family: Special Elite, cursive, sans-serif;
+  height: 25px;
+}
+
+#meio {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  /* margin: topo, direita, inferior, esquerda */
+  margin: auto;
+  width: 95%;
+  border: 2px solid black;
+  border-radius: 4px;
+  border-bottom-color: gray;
+  border-right-color: gray;
+}
+
+#cima-baixo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 20px;
+}
+
+#mover-cima , #mover-baixo {
+  height: 50px;
+  width: 50px;
+}
+
+#abaixo {
+  display: flex;
+  align-content: center;
+  margin-top: 10px;
+  justify-content: space-evenly;
 }
