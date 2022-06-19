@@ -72,7 +72,7 @@ window.onload = () => { // para que aconteça depois que carregar né
   const newList = document.getElementsByTagName('ol')[0];
   newList.innerHTML = listSaved;
   newList.addEventListener('click', bgColor);
-  // newList.addEventListener('dblclick', line); // POR ENQUANTO A BONITA QUER CAUSAR TRETA já já resolvo.
+  // newList.addEventListener('dblclick', line); // POR ENQUANTO A BONITA QUER CAUSAR TRETA ainda não descobri como resolver.
 };
 
 // requisito 14
